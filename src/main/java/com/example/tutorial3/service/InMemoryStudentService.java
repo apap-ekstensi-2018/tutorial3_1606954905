@@ -26,12 +26,11 @@ public class InMemoryStudentService implements StudentService {
 	@Override
 	public StudentModel selectStudent(String npm) {
 		//implemet
+		 
 		for(StudentModel itemStudent : studentList)
 		{
-			if (itemStudent.getNpm() == npm)
+			if (itemStudent.getNpm().equals(npm))
 			{
-				System.out.println(itemStudent.getNpm());
-				System.out.println("npm : " + npm);
 				return itemStudent;
 			}
 		}
@@ -48,4 +47,16 @@ public class InMemoryStudentService implements StudentService {
 		studentList.add(student);
 	}
 
+	@Override
+	public void deleteStudent(String npm)
+	{
+		for(StudentModel itemStudent : studentList)
+		{
+			if (itemStudent.getNpm().equals(npm))
+			{
+				// remove from collection if exist
+				studentList.remove(itemStudent);
+			}
+		}
+	}
 }
