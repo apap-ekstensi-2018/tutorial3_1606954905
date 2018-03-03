@@ -50,13 +50,12 @@ public class InMemoryStudentService implements StudentService {
 	@Override
 	public void deleteStudent(String npm)
 	{
-		for(StudentModel itemStudent : studentList)
-		{
-			if (itemStudent.getNpm().equals(npm))
-			{
-				// remove from collection if exist
-				studentList.remove(itemStudent);
-			}
+		StudentModel entityStudent = selectStudent(npm);
+		
+		if	(entityStudent != null) {
+			//execute delete student
+			studentList.remove(entityStudent);	
 		}
+		
 	}
 }

@@ -91,6 +91,7 @@ public class StudentController {
 			StudentModel student = studentService.selectStudent(npm.get());
 			if (student != null)
 			{
+				System.out.println(student);
 				// if student exist, execute service delete 
 				studentService.deleteStudent(npm.get());
 				return "delete";
